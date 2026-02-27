@@ -56,8 +56,10 @@ STYLE_FILE="$THIS_DIR/../global_assets/build/style.html"
 PROFILE_TEMPLATE_FILE="$THIS_DIR/../global_assets/templates/profile.html"
 
 echo "Copying global logo and favicon"
+
 cp "$THIS_DIR/../global_assets/build/logo.png" "$THIS_DIR/build/logo.png"
 cp "$THIS_DIR/../global_assets/build/favicon.png" "$THIS_DIR/build/favicon.png"
+
 echo "Copying global logo and favicon done"
 echo #
 
