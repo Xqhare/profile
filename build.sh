@@ -65,7 +65,7 @@ echo #
 
 echo "Building profile page"
 
-pandoc -f gfm -t html --template="$PROFILE_TEMPLATE_FILE" --include-in-header="$STYLE_FILE" --include-before-body="$HEADER_FILE" --include-after-body="$FOOTER_FILE" -o "$THIS_DIR/build/profile.html" "$THIS_DIR/profile_data/profile.md"
+pandoc -f gfm -t html --template="$PROFILE_TEMPLATE_FILE" --include-in-header="$STYLE_FILE" --include-before-body="$HEADER_FILE" --include-after-body="$FOOTER_FILE" -o "$THIS_DIR/build/profile.html" "$THIS_DIR/profile_data/README.md"
 
 echo "Profile page built"
 echo #
