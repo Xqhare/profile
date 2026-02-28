@@ -10,18 +10,18 @@ THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$THIS_DIR"
 
 if ! test -d "$THIS_DIR/html"; then
-        mkdir -p "$THIS_DIR/html"
+        sudo mkdir -p "$THIS_DIR/html"
 fi
 
 # Deploy assumes that any building has already been done
 BUILD_DIR="$THIS_DIR/build"
 DATA_DIR="$THIS_DIR/data"
 if ! test -d "$DATA_DIR"; then
-        mkdir -p "$DATA_DIR"
+        sudo mkdir -p "$DATA_DIR"
 fi
 
 DEPLOYMENT_DIR="$DATA_DIR/$(date +%Y-%m-%d-%H-%M-%S)"
-mkdir -p "$DEPLOYMENT_DIR"
+sudo mkdir -p "$DEPLOYMENT_DIR"
 echo "Setting up environment done."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"
 echo #
@@ -30,19 +30,19 @@ echo "Deploying profile page..."
 NEW_PROFILE_FILE="$DEPLOYMENT_DIR/profile.html"
 
 echo "Moving build data to data directory..."
-mv "$BUILD_DIR/profile.html" "$NEW_PROFILE_FILE"
+sudo mv "$BUILD_DIR/profile.html" "$NEW_PROFILE_FILE"
 echo "Moving done."
 echo #
 
 echo "Updating favicon and logo..."
-cp "$BUILD_DIR/favicon.png" "$THIS_DIR/html/favicon.png"
-cp "$BUILD_DIR/logo.png" "$THIS_DIR/html/logo.png"
+sudo cp "$BUILD_DIR/favicon.png" "$THIS_DIR/html/favicon.png"
+sudo cp "$BUILD_DIR/logo.png" "$THIS_DIR/html/logo.png"
 echo "Updating favicon and logo done."
 echo #
 
 echo "Creating symlinks..."
 cd "$THIS_DIR/html"
-ln -s -f "../data/$(basename "$DEPLOYMENT_DIR")/profile.html" "index.html"
+sudo ln -s -f "../data/$(basename "$DEPLOYMENT_DIR")/profile.html" "index.html"
 echo "Symlinks created."
 echo #
 
