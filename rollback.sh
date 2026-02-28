@@ -31,7 +31,7 @@ echo "Rolling back profile service to version: $PREVIOUS_VERSION..."
 
 # Update profile page symlink
 cd "$HTML_DIR"
-sudo ln -s -f "../data/$PREVIOUS_VERSION/profile.html" "index.html"
+ln -s -f "../data/$PREVIOUS_VERSION/profile.html" "index.html"
 
 echo "Rollback for profile service complete."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"
