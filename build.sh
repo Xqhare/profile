@@ -62,8 +62,6 @@ echo "Building profile page done."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"
 echo #
 
-echo "------------------------------------------------"
-echo #
 echo "Profile web service building script finished"
-echo #
+echo "------------------------------------------------"
 exit 0

@@ -50,8 +50,6 @@ echo "Deploying profile page done."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"
 echo #
 
-echo "------------------------------------------------"
-echo #
 echo "Deploying profile web service script finished"
-echo #
+echo "------------------------------------------------"
 exit 0

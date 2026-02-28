@@ -3,7 +3,6 @@
 echo "------------------------------------------------"
 echo #
 echo "Profile web service hook script started"
-echo #
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$THIS_DIR"
@@ -18,8 +17,7 @@ else
         exit 1
 fi
 
-echo "------------------------------------------------"
-echo #
 echo "Profile web service hook script finished"
+echo "------------------------------------------------"
 echo #
 exit 0
