@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # rollback.sh for profile service
 # Reverts the index.html symlinks to the second latest version in the data directory.

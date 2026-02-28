@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+set -e
 
 echo "------------------------------------------------"
 echo #
 echo "Profile web service hook script started"
+echo #
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$THIS_DIR"
@@ -19,5 +21,4 @@ fi
 
 echo "Profile web service hook script finished"
 echo "------------------------------------------------"
-echo #
 exit 0
