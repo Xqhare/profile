@@ -42,6 +42,14 @@ echo "Rebuilding global assets done."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"
 echo #
 
+# Read asset version for cache busting
+ASSET_VERSION="1"
+VERSION_FILE="$THIS_DIR/../global_assets/build/version.txt"
+if [ -f "$VERSION_FILE" ]; then
+    ASSET_VERSION=$(cat "$VERSION_FILE")
+    echo "Using asset version: $ASSET_VERSION"
+fi
+
 echo "Building profile page..."
 FOOTER_FILE="$THIS_DIR/../global_assets/build/footer.html"
 HEADER_FILE="$THIS_DIR/../global_assets/build/header.html"
@@ -55,7 +63,7 @@ echo "Copying global logo and favicon done."
 echo #
 
 echo "Building profile page..."
-pandoc -f gfm -t html --template="$PROFILE_TEMPLATE_FILE" --include-in-header="$STYLE_FILE" --include-before-body="$HEADER_FILE" --include-after-body="$FOOTER_FILE" -o "$THIS_DIR/build/profile.html" "$THIS_DIR/profile_data/README.md"
+pandoc -f gfm -t html --template="$PROFILE_TEMPLATE_FILE" --metadata asset_v="$ASSET_VERSION" --include-in-header="$STYLE_FILE" --include-before-body="$HEADER_FILE" --include-after-body="$FOOTER_FILE" -o "$THIS_DIR/build/profile.html" "$THIS_DIR/profile_data/README.md"
 echo "Profile page built."
 echo #
 
