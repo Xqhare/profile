@@ -2,7 +2,7 @@
 set -e
 
 # rollback.sh for profile service
-# Reverts the index.html symlinks to the second latest version in the data directory.
+# Reverts the symlinks to the second latest version in the data directory.
 
 echo "------------------------------------------------"
 echo #
@@ -30,11 +30,11 @@ fi
 
 echo "Rolling back profile service to version: $PREVIOUS_VERSION..."
 
-# Update symlinks
+# Update symlinks using absolute container paths
 cd "$HTML_DIR"
-ln -s -f "../data/$PREVIOUS_VERSION/profile.html" "index.html"
-ln -s -f "../data/$PREVIOUS_VERSION/favicon.png" "favicon.png"
-ln -s -f "../data/$PREVIOUS_VERSION/logo.png" "logo.png"
+ln -s -f "/usr/share/nginx/data/$PREVIOUS_VERSION/profile.html" "index.html"
+ln -s -f "/usr/share/nginx/data/$PREVIOUS_VERSION/favicon.png" "favicon.png"
+ln -s -f "/usr/share/nginx/data/$PREVIOUS_VERSION/logo.png" "logo.png"
 
 echo "Rollback for profile service complete."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"

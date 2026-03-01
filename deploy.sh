@@ -39,9 +39,10 @@ echo #
 
 echo "Creating symlinks..."
 cd "$THIS_DIR/html"
-ln -s -f "../data/$(basename "$DEPLOYMENT_DIR")/profile.html" "index.html"
-ln -s -f "../data/$(basename "$DEPLOYMENT_DIR")/favicon.png" "favicon.png"
-ln -s -f "../data/$(basename "$DEPLOYMENT_DIR")/logo.png" "logo.png"
+# Use absolute paths within the container for symlinks
+ln -s -f "/usr/share/nginx/data/$(basename "$DEPLOYMENT_DIR")/profile.html" "index.html"
+ln -s -f "/usr/share/nginx/data/$(basename "$DEPLOYMENT_DIR")/favicon.png" "favicon.png"
+ln -s -f "/usr/share/nginx/data/$(basename "$DEPLOYMENT_DIR")/logo.png" "logo.png"
 echo "Symlinks created."
 echo #
 
