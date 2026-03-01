@@ -30,9 +30,11 @@ fi
 
 echo "Rolling back profile service to version: $PREVIOUS_VERSION..."
 
-# Update profile page symlink
+# Update symlinks
 cd "$HTML_DIR"
 ln -s -f "../data/$PREVIOUS_VERSION/profile.html" "index.html"
+ln -s -f "../data/$PREVIOUS_VERSION/favicon.png" "favicon.png"
+ln -s -f "../data/$PREVIOUS_VERSION/logo.png" "logo.png"
 
 echo "Rollback for profile service complete."
 echo "- - - - - - - - - - - - - - - - - - - - - - - -"
