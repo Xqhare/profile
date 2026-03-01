@@ -39,7 +39,8 @@ echo #
 
 echo "Creating symlinks..."
 cd "$THIS_DIR/html"
-# Use absolute paths within the container for symlinks
+# Robust replacement: remove before symlinking
+rm -f "index.html" "favicon.png" "logo.png"
 ln -s -f "/usr/share/nginx/data/$(basename "$DEPLOYMENT_DIR")/profile.html" "index.html"
 ln -s -f "/usr/share/nginx/data/$(basename "$DEPLOYMENT_DIR")/favicon.png" "favicon.png"
 ln -s -f "/usr/share/nginx/data/$(basename "$DEPLOYMENT_DIR")/logo.png" "logo.png"
