@@ -4,12 +4,15 @@
 This directory contains the source content and configuration for `profile.xqhare.net`.
 
 ## Directory Structure
-- `profile_data/`: A symlink to the `Xqhare/` repository, containing detailed profile information.
-- `build.sh`: Intended to compile the profile content into static HTML.
-- `deploy.sh`: (Placeholder) Intended to deploy the generated HTML to the server.
+- `profile_data/`: A git repository containing detailed profile information (Markdown).
+- `build/`: Temporary directory for generated HTML files.
+- `data/`: Stores timestamped deployments for atomic updates and rollbacks.
+- `html/`: The live directory served by Nginx, containing symlinks to `data/`.
+- `build.sh`: Pulls the latest `profile_data`, pulls `global_assets`, and compiles the profile content into static HTML using `pandoc`.
+- `deploy.sh`: Handles atomic deployment using timestamped directories and symlinks.
+- `rollback.sh`: Reverts the active symlinks to the previous deployment state.
 - `hook.sh`: Triggered after a git push to rebuild and redeploy the profile site.
 - `README.md`: High-level overview of the profile site.
-- `LICENSE`: MIT License.
 
 ## Usage
-Content is derived from the `profile_data` symlink. The `build.sh` script is planned to convert this data into static HTML for `profile.xqhare.net`. Deployed automatically via the `webpage` pipeline. Refer to [../webpage_startup_notes/GEMINI.md](../webpage_startup_notes/GEMINI.md) for technical details on the build and deployment process.
+Content is derived from the `profile_data` repository. The `build.sh` script converts this data into static HTML for `profile.xqhare.net`. Deployed automatically and atomically.
